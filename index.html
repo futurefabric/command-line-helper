@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Command line helper</title>
+
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
+  <script src="javascripts/modernizr.foundation.js"></script>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <style type="text/css">
+  	table {
+	  	width: 100%;
+  	}
+
+  	ul.tabs-content li {
+	  	margin-top: 40px;
+  	}
+  </style>
+
+</head>
+<body>
+
+<div class="row">
+  <div class="twelve columns">
+    <h1>Command line helper</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		<dl class="tabs">
+			<dd class="active"><a href="#simple1">General</a></dd>
+			<dd><a href="#simple2">Git</a></dd>
+			<dd><a href="#simple3">Ruby / Rails</a></dd>
+			<dd><a href="#simple4">Heroku</a></dd>
+			<dd><a href="#simple5">Python</a></dd>
+		</dl>
+
+		<ul class="tabs-content">
+			<!-- General stuff -->
+			<li class="active" id="simple1Tab">
+				<table>
+					<tr>
+						<td>Show hidden files</td>
+						<td><code>defaults write com.apple.finder AppleShowAllFiles TRUE<br />killall Finder</code></td>
+					</tr>
+					<tr>
+						<td>Hide hidden files</td>
+						<td><code>defaults write com.apple.finder AppleShowAllFiles FALSE<br />killall Finder</code></td>
+					</tr>
+					<tr>
+						<td>Show current location</td>
+						<td><code>pwd</code></td>
+					</tr>
+					<tr>
+						<td>Edit file</td>
+						<td><code>pico [filename]</code></td>
+					</tr>
+					<tr>
+						<td>Create folder alias/shortcut</td>
+						<td><code>cd /Users/[Username]<br />pico .bashrc<br />alias [aliasname]='/absolute/path/to/folder'<br /><br />. ~/.bashrc</code></td>
+					</tr>
+
+					<tr>
+						<td>Run browserstack tunnel (gov.uk)</td>
+						<td><code>java -jar BrowserStackTunnel.jar 4Z77cXpTTAPduxYUdEnp frontend.dev.gov.uk,80,0,static.dev.gov.uk,80,0</code></td>
+					</tr>
+
+					<tr>
+						<td>Show and kill running ruby processes</td>
+						<td><code>ps axf | grep ruby<br />kill -9 0000</code></td>
+					</tr>
+
+          <tr>
+            <td>Change folder permissions</td>
+            <td>eg. <code>chmod -R 777</code> (recursive) or <code>chmod 777 folder</code> (for specific folder)</td>
+          </tr>
+
+				</table>
+			</li>
+
+			<!-- Git -->
+			<li id="simple2Tab">
+				<table>
+					<tr>
+						<td>Current repo status</td>
+						<td><code>git status</code></td>
+					</tr>
+
+					<tr>
+						<td>Pull, rebase</td>
+						<td><code>git pull rebase</code></td>
+					</tr>
+					<tr>
+						<td>Commit</td>
+						<td><code>git commit -am "[Commit Message]"</code></td>
+					</tr>
+
+					<tr>
+						<td>Add a remote</td>
+						<td><code>git remote add github git@github.com:example/foo.git</code></td>
+					</tr>
+
+					<tr>
+						<td>Show remotes</td>
+						<td><code>git remote</code></td>
+					</tr>
+
+					<tr>
+						<td>Push to a remote</td>
+						<td><code>git push [Remote name] [Branch name]</code> (eg. git push origin master)</td>
+					</tr>
+
+					<tr>
+						<td>Merge conflict, use their file</td>
+						<td><code>git checkout MERGE_HEAD -- path/to/file.filetype</code></td>
+					</tr>
+
+					<tr>
+						<td>Get branch from remote and checkout locally</td>
+						<td><code>git checkout -b branch_name origin/branch_name</code></td>
+					</tr>
+
+					<tr>
+						<td>Cherry pick a commit from another branch</td>
+						<td><code>git cherry-pick -n 428366cf7295568f2363342a5d33016f57422058</code> (you then need to commit change)</td>
+					</tr>
+
+					<tr>
+						<td>Delete most recent commit</td>
+						<td><code>git reset --hard HEAD~1</code></td>
+					</tr>
+
+					<tr>
+						<td>Delete local branch</td>
+						<td><code>git branch -D branchname</code></td>
+					</tr>
+
+					<tr>
+						<td>Pull remote branch (well, create local branch and track remote)</td>
+						<td><code>git checkout --track origin/branch_name</code></td>
+					</tr>
+
+					<tr>
+						<td>Push a local branch to heroku as master</td>
+						<td><code>git push heroku yourbranch:master</code></td>
+					</tr>
+
+
+
+
+				</table>
+			</li>
+
+			<!-- Ruby / Rails -->
+			<li id="simple3Tab">
+				<table>
+					<tr>
+						<td>Run outstanding database migrations</td>
+						<td><code>rake db:migrate</code></td>
+					</tr>
+
+					<tr>
+						<td>Seed database from seeds.rb</td>
+						<td><code>rake db:seed</code></td>
+					</tr>
+
+					<tr>
+						<td>Show configured routes for app</td>
+						<td><code>rake routes</code></td>
+					</tr>
+
+					<tr>
+						<td>Start rails console</td>
+						<td><code>bundle exec rails console</code></td>
+					</tr>
+
+					<tr>
+						<td>Start ruby console</td>
+						<td><code>irb</code></td>
+					</tr>
+				</table>
+			</li>
+
+			<!-- Heroku -->
+			<li id="simple4Tab">
+				<table>
+					<tr>
+						<td>Create an app on Heroku (easier through dashboard)</td>
+						<td><code>heroku apps:create appname</code></td>
+					</tr>
+
+					<tr>
+						<td>Push local database to Heroku (Heroku's must be empty)</td>
+						<td><code>heroku pg:push mylocaldb HEROKU_POSTGRESQL_MAGENTA --app myappname</code></td>
+					</tr>
+
+					<tr>
+						<td>Show config and enviroment variables</td>
+						<td><code>heroku config</code></td>
+					</tr>
+
+					<tr>
+						<td>Update/change an environment variable</td>
+						<td><code>heroku config:set GITHUB_USERNAME=joesmith</code></td>
+					</tr>
+
+					<tr>
+						<td>Push a local branch to heroku as master</td>
+						<td><code>git push heroku yourbranch:master</code></td>
+					</tr>
+
+				</table>
+
+
+			</li>
+
+			<!-- Python -->
+			<li id="simple5Tab">
+				<table>
+					<tr>
+						<td>In root, runs server on localhost:8000</td>
+						<td><code>source /usr/local/bin/virtualenvwrapper.sh; workon rollcall; python manage.py runserver</code></td>
+					</tr>
+
+				</table>
+
+
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+  <!-- Included JS Files (Uncompressed) -->
+
+
+  <!--
+<script src="javascripts/jquery.js"></script>
+
+  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+
+  <script src="javascripts/jquery.foundation.forms.js"></script>
+
+  <script src="javascripts/jquery.foundation.reveal.js"></script>
+
+  <script src="javascripts/jquery.foundation.orbit.js"></script>
+
+  <script src="javascripts/jquery.foundation.navigation.js"></script>
+
+  <script src="javascripts/jquery.foundation.buttons.js"></script>
+
+  <script src="javascripts/jquery.foundation.tabs.js"></script>
+
+  <script src="javascripts/jquery.foundation.tooltips.js"></script>
+
+  <script src="javascripts/jquery.foundation.accordion.js"></script>
+
+  <script src="javascripts/jquery.placeholder.js"></script>
+
+  <script src="javascripts/jquery.foundation.alerts.js"></script>
+
+  <script src="javascripts/jquery.foundation.topbar.js"></script>
+-->
+
+
+  <!-- Included JS Files (Compressed) -->
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/foundation.min.js"></script>
+  <script src="javascripts/jquery.foundation.tabs.js"></script>
+
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+</body>
+</html>
