@@ -98,6 +98,11 @@
             <td>eg. <code>chmod -R 777</code> (recursive) or <code>chmod 777 folder</code> (for specific folder)</td>
           </tr>
 
+          <tr>
+            <td>Screencapture at an interval</td>
+            <td><code>while [ 1 ];do vardate=$(date +%d\-%m\-%Y\_%H.%M.%S); screencapture -t jpg -x ~/Desktop/Folder/$vardate.jpg; sleep 10; done</code><br />(where Folder can be specified and the interval is set in seconds after sleep)</td>
+          </tr>
+
 				</table>
 			</li>
 
