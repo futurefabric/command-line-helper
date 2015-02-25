@@ -1,4 +1,82 @@
+
+* {
+  font-size:16px;
+  line-height:23px;
+  color:#000;
+  font-family:'Helvetica Neue', Helvetica, sans-serif;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 h1 {
   margin-top:30px;
-  margin-bottom:50px;
+  margin-bottom:20px;
+  font-size: 36px;
+}
+
+code {
+  font-family:Courier;
+}
+
+dl.tabs {
+border-bottom: none;
+display: block;
+padding-left:0;
+margin-bottom:60px;
+}
+
+dl.tabs dd.active {
+border-top: none;
+margin-top: 0;
+}
+
+dl.tabs dd a,
+dl.tabs dd a:active {
+  font-weight: normal;
+  color:#000;
+}
+
+dl.tabs dd.active a,
+dl.tabs dd.active a:active,
+dl.tabs dd.active a:focus {
+cursor: default;
+background: #fff;
+border-left: none;
+border-right: none;
+font-weight: normal;
+}
+
+dl.tabs dd.active a {
+  color:#F74845;
+}
+
+dl.tabs dd a {
+font-size: 16px;
+padding: 0px 30px 0 0;
+}
+
+table {
+background: #fff;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+margin: 0 0 18px;
+border: 0;
+padding:0;
+border-collapse: collapse;
+table-layout: fixed;
+}
+
+table tbody tr:nth-child(even) {
+background: #fff;
+}
+
+table tbody tr td {
+border-top:2px solid #000;
+font-size:16px;
+padding:15px 0;
+color:#000;
 }
