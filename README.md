@@ -4,6 +4,8 @@ Command line helper
 A bunch of useful CL commands.
 (well, ones I find useful anyway).
 
+You can [preview this on Github Pages](http://futurefabric.github.io/command-line-helper).
+
 Clone, open index.html in your browser.
 
 Provided as is.
