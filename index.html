@@ -53,6 +53,7 @@
 		<dl class="tabs">
 			<dd class="active"><a href="#simple1">General</a></dd>
 			<dd><a href="#simple2">Git</a></dd>
+      <dd><a href="#simple5">Docker</a></dd>
 			<dd><a href="#simple3">Ruby / Rails</a></dd>
 			<dd><a href="#simple4">Heroku</a></dd>
 		</dl>
@@ -239,6 +240,56 @@
 					<tr>
 						<td>Push a local branch to heroku as master</td>
 						<td><code>git push heroku yourbranch:master</code></td>
+					</tr>
+
+				</table>
+
+
+			</li>
+
+
+
+      <!-- Heroku -->
+			<li id="simple5Tab">
+				<table>
+					<tr>
+						<td>Start docker and connect to container</td>
+						<td><code>docker-machine start default</code></td>
+					</tr>
+
+					<tr>
+						<td>Run after starting</td>
+						<td><code>docker-machine env default</code></td>
+					</tr>
+
+					<tr>
+						<td>Then run</td>
+						<td><code>eval "$(docker-machine env default)"</code></td>
+					</tr>
+
+					<tr>
+						<td>Run docker in the background</td>
+						<td><code>docker-compose up -d</code></td>
+					</tr>
+
+					<tr>
+						<td>Stop using gulp as part of docker container</td>
+						<td><code>docker-compose kill gulp</code></td>
+					</tr>
+
+          <tr>
+						<td>Run django migrations</td>
+						<td><code>docker-compose run --rm django python3 manage.py migrate</code></td>
+					</tr>
+
+          <tr>
+						<td>Stop docker</td>
+						<td><code>docker-compose stop</code></td>
+					</tr>
+
+          <tr>
+						<td>Get container IP address</td>
+						<td><code>docker-machine ip default</code></td>
 					</tr>
 
 				</table>
