@@ -56,6 +56,7 @@
       <dd><a href="#simple5">Docker</a></dd>
 			<dd><a href="#simple3">Ruby / Rails</a></dd>
 			<dd><a href="#simple4">Heroku</a></dd>
+      <dd><a href="#simple6">AWS CLI</a></dd>
 		</dl>
 
 		<ul class="tabs-content">
@@ -296,6 +297,33 @@
           <tr>
 						<td>Get container IP address</td>
 						<td><code>docker-machine ip default</code></td>
+					</tr>
+
+				</table>
+
+
+			</li>
+
+      <!-- AWS CLI -->
+			<li id="simple6Tab">
+				<table>
+					<tr>
+						<td>Set up a profile to use. Will need:<br />
+              <code>AWS Access Key ID</code><br />
+              <code>AWS Secret Access Key</code><br />
+              <code>Default region name</code> (eg. <code>eu-west-1</code>)
+            </td>
+						<td><code>aws configure --profile PROFILE_NAME</code></td>
+					</tr>
+
+          <tr>
+						<td>List s3 buckets for that profile</td>
+						<td><code>aws s3api list-buckets --profile PROFILE_NAME</code></td>
+					</tr>
+
+          <tr>
+						<td>Copy s3 bucket and entire contents to current directory</td>
+						<td><code>aws s3 cp s3://BUCKET_NAME/ ./ --recursive --profile PROFILE_NAME</code></td>
 					</tr>
 
 				</table>
